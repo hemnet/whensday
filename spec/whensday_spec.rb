@@ -33,4 +33,16 @@ describe Whensday do
       wednesday.prev_wednesday.should == Date.new(2012,8,22)
     end
   end
+
+  context "an arbitrary thursday" do
+    let(:thursday) { Date.new(2012,8,2) }
+
+    it "should find next wednesday" do
+      thursday.next_wednesday.should == Date.new(2012,8,8)
+    end
+
+    it "should find previous wednesday" do
+      thursday.prev_wednesday.should == Date.new(2012,8,1)
+    end
+  end
 end

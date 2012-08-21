@@ -9,7 +9,7 @@ module Whensday
     end
 
     def prev_wednesday
-      return self - (((2 + self.wday) % 7) + 2)
+      return self - (((3 + self.wday) % 7) + 1)
     end
 
     def first_wednesday_of_year
