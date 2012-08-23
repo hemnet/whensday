@@ -4,16 +4,31 @@ require "date"
 
 module Whensday
   module Date
-    def next_wednesday
-      return self + ((2 - self.wday) % 7) + 1
+    def self.included(base)
+      base.send :extend, ClassMethods
+      base.send :include, InstanceMethods
     end
+    module InstanceMethods
+      def next_wednesday
+        self + ((2 - self.wday) % 7) + 1
+      end
 
-    def prev_wednesday
-      return self - (((3 + self.wday) % 7) + 1)
+      def prev_wednesday
+        self - (((3 + self.wday) % 7) + 1)
+      end
+
+      def first_wednesday_of_year
+        beginning_of_year.next_wednesday
+      end
     end
+    module ClassMethods
+      def next_wednesday
+        today.next_wednesday
+      end
 
-    def first_wednesday_of_year
-      self.beginning_of_year.next_wednesday
+      def prev_wednesday
+        today.prev_wednesday
+      end
     end
   end
 end

@@ -2,6 +2,13 @@ require 'spec_helper'
 require 'whensday'
 
 describe Whensday do
+  describe "class methods" do
+    it "should default to today" do
+      Date.next_wednesday.should == Date.today.next_wednesday
+      Date.prev_wednesday.should == Date.today.prev_wednesday
+    end
+  end
+
   context "beginning of a year" do
     let(:year) { Date.new(2012,1,1) }
 
@@ -45,4 +52,5 @@ describe Whensday do
       thursday.prev_wednesday.should == Date.new(2012,8,1)
     end
   end
+
 end
