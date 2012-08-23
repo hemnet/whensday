@@ -13,6 +13,10 @@ module Whensday
         self + ((2 - self.wday) % 7) + 1
       end
 
+      def this_wednesday
+        self + ((3 - self.wday) % 7)
+      end
+
       def prev_wednesday
         self - (((3 + self.wday) % 7) + 1)
       end
@@ -24,6 +28,10 @@ module Whensday
     module ClassMethods
       def next_wednesday
         today.next_wednesday
+      end
+
+      def this_wednesday
+        today.this_wednesday
       end
 
       def prev_wednesday

@@ -6,6 +6,7 @@ describe Whensday do
     it "should default to today" do
       Date.next_wednesday.should == Date.today.next_wednesday
       Date.prev_wednesday.should == Date.today.prev_wednesday
+      Date.this_wednesday.should == Date.today.this_wednesday
     end
   end
 
@@ -17,23 +18,15 @@ describe Whensday do
     end
   end
 
-  context "an arbitrary sunday" do
-    let(:sunday) { Date.new(2012,8,26) }
-
-    it "should find next wednesday" do
-      sunday.next_wednesday.should == Date.new(2012,8,29)
-    end
-
-    it "should find previous wednesday" do
-      sunday.prev_wednesday.should == Date.new(2012,8,22)
-    end
-  end
-
   context "an arbitrary wednesday" do
     let(:wednesday) { Date.new(2012,8,29) }
 
     it "should find next wednesday" do
       wednesday.next_wednesday.should == Date.new(2012,9,5)
+    end
+
+    it "should find this wednesday" do
+      wednesday.this_wednesday.should == wednesday
     end
 
     it "should find previous wednesday" do
@@ -46,6 +39,10 @@ describe Whensday do
 
     it "should find next wednesday" do
       thursday.next_wednesday.should == Date.new(2012,8,8)
+    end
+
+    it "should find this wednesday" do
+      thursday.this_wednesday.should == thursday.next_wednesday
     end
 
     it "should find previous wednesday" do
