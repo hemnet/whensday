@@ -7,6 +7,7 @@ describe Whensday do
       Date.next_wednesday.should == Date.today.next_wednesday
       Date.prev_wednesday.should == Date.today.prev_wednesday
       Date.this_wednesday.should == Date.today.this_wednesday
+      Date.last_wednesday.should == Date.today.last_wednesday
     end
   end
 
@@ -32,6 +33,10 @@ describe Whensday do
     it "should find previous wednesday" do
       wednesday.prev_wednesday.should == Date.new(2012,8,22)
     end
+
+    it "should find last wednesday" do
+      wednesday.last_wednesday.should == wednesday
+    end
   end
 
   context "an arbitrary thursday" do
@@ -48,6 +53,29 @@ describe Whensday do
     it "should find previous wednesday" do
       thursday.prev_wednesday.should == Date.new(2012,8,1)
     end
+
+    it "should find last wednesday" do
+      thursday.last_wednesday.should == thursday.prev_wednesday
+    end
   end
 
+  context "an arbitrary tuesday" do
+    let(:thursday) { Date.new(2012,8,28) }
+
+    it "should find next wednesday" do
+      thursday.next_wednesday.should == Date.new(2012,8,29)
+    end
+
+    it "should find this wednesday" do
+      thursday.this_wednesday.should == thursday.next_wednesday
+    end
+
+    it "should find previous wednesday" do
+      thursday.prev_wednesday.should == Date.new(2012,8,22)
+    end
+
+    it "should find last wednesday" do
+      thursday.last_wednesday.should == thursday.prev_wednesday
+    end
+  end
 end

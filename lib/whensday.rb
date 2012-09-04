@@ -21,6 +21,10 @@ module Whensday
         self - (((3 + self.wday) % 7) + 1)
       end
 
+      def last_wednesday
+        self - ((4 + self.wday) % 7)
+      end
+
       def first_wednesday_of_year
         beginning_of_year.next_wednesday
       end
@@ -36,6 +40,10 @@ module Whensday
 
       def prev_wednesday
         today.prev_wednesday
+      end
+
+      def last_wednesday
+        today.last_wednesday
       end
     end
   end
