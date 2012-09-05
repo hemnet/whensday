@@ -17,6 +17,10 @@ describe Whensday do
     it "should find the first wednesday" do
       year.first_wednesday_of_year.should == Date.new(2012,1,4)
     end
+
+    it "should find the last wednesday" do
+      year.last_wednesday_of_year.should == Date.new(2012,12,26)
+    end
   end
 
   context "an arbitrary wednesday" do

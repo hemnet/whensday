@@ -28,6 +28,10 @@ module Whensday
       def first_wednesday_of_year
         beginning_of_year.next_wednesday
       end
+
+      def last_wednesday_of_year
+        end_of_year.last_wednesday
+      end
     end
     module ClassMethods
       def next_wednesday
