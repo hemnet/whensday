@@ -26,7 +26,7 @@ module Whensday
       end
 
       def first_wednesday_of_year
-        beginning_of_year.next_wednesday
+        beginning_of_year.this_wednesday
       end
 
       def last_wednesday_of_year
