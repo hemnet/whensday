@@ -49,6 +49,10 @@ describe Whensday do
     it "should find last wednesday" do
       wednesday.last_wednesday.should == wednesday
     end
+
+    it "should find upcoming wednesdays" do
+      wednesday.upcoming_wednesdays( 3 ) == [Date.new(2012,9,5),Date.new(2012,9,12),Date.new(2012,9,17)]
+    end
   end
 
   context "an arbitrary thursday" do
@@ -68,6 +72,10 @@ describe Whensday do
 
     it "should find last wednesday" do
       thursday.last_wednesday.should == thursday.prev_wednesday
+    end
+
+    it "should find upcoming wednesdays" do
+      thursday.upcoming_wednesdays( 2 ) == [Date.new(2012,8,8),Date.new(2012,8,15)]
     end
   end
 

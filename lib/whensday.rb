@@ -32,6 +32,14 @@ module Whensday
       def last_wednesday_of_year
         end_of_year.last_wednesday
       end
+
+      def upcoming_wednesdays count = 1
+        if count <= 1
+          [next_wednesday]
+        else
+          [next_wednesday] + next_wednesday.upcoming_wednesdays( count - 1 )
+        end
+      end
     end
     module ClassMethods
       def next_wednesday
